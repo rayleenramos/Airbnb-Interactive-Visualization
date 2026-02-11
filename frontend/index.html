@@ -1,0 +1,122 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Interactive Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="helpBtn">Help</button>
+    <h1>Airbnb Interactive Visualization</h1>
+    <hr>
+
+    <!-- user login and message display area -->
+    <!-- HEADER CONTAINER -->
+    <div class="header-container">
+        <!-- LEFT: login & messages -->
+        <div class="header-left">
+            <form id="loginForm">
+                <label>
+                    Login:
+                    <input type="text" name="login" id="loginInput" required>
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" id="passwordInput" required>
+                </label>
+                <button type="submit">Login</button>
+            </form>
+            <div id="message_area"></div>
+        </div>
+
+        <!-- RIGHT: action buttons -->
+        <div class="header-right">
+            <button id="logoutBtn" style="display:none;">Logout</button>
+            <button id="loadDataBtn" disabled>Load DB</button>
+            <button id="saveSettingsBtn" disabled>Save</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- CONTROLS: dropdown for borough and slider for price -->
+    <h2 class="text-left">Controls</h2>
+
+    <div class="controls-row">
+        <div>
+            <label for="boroughSelect">Select Borough:</label>
+            <select id="boroughSelect">
+                <option value="All">All</option>
+                <option value="Bronx">Bronx</option>
+                <option value="Brooklyn">Brooklyn</option>
+                <option value="Manhattan">Manhattan</option>
+                <option value="Queens">Queens</option>
+                <option value="Staten Island">Staten Island</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Price Range: </label>
+            <span id="priceLow"></span> - <span id="priceHigh"></span>
+            <input type="range" id="priceSlider" min="0" max="100" value="100" disabled>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- CHARTS: visualizations using Chart.js -->
+    <h2>Chart 1: Average Price by Neighborhood</h2>
+    <canvas id="chart1"></canvas>
+
+    <hr>
+
+    <h2>Chart 2: Price vs. Number of Reviews</h2>
+    <canvas id="chart2"></canvas>
+
+    <hr>
+
+    <!-- DATA TABLES: google tables showing raw data and aggregated data -->
+    <h2>Loaded Data</h2>
+
+    <!-- tab links -->
+    <div class="tab">
+        <button class="tablinks active" onclick="openCity(event, 'RawData')">Raw Airbnb Data</button>
+        <button class="tablinks" onclick="openCity(event, 'BoroughData')">Price by Borough</button>
+        <button class="tablinks" onclick="openCity(event, 'NeighborhoodData')">Price by Neighborhood</button>
+        <button class="tablinks" onclick="openCity(event, 'ReviewsData')">Price by Reviews</button>
+    </div>
+
+    <!-- tab content -->
+    <div id="RawData" class="tabcontent" style="display: block;">
+        <h3>Raw Airbnb Data</h3>
+        <div id="table_airbnb" style="overflow: auto;"></div>
+        <div id="outlier_message"></div>
+    </div>
+
+    <div id="BoroughData" class="tabcontent">
+        <h3>Data Mart 1: Price by Borough</h3>
+        <div id="table_borough" style="overflow: auto;"></div>
+        <div id="outlier_message_borough"></div>
+    </div>
+
+    <div id="NeighborhoodData" class="tabcontent">
+        <h3>Data Mart 2: Price by Neighborhood</h3>
+        <div id="table_neighborhood" style="overflow: auto;"></div>
+        <div id="outlier_message_neighborhood"></div>
+    </div>
+
+    <div id="ReviewsData" class="tabcontent">
+        <h3>Data Mart 3: Price vs. Reviews</h3>
+        <div id="table_reviews" style="overflow: auto;"></div>
+        <div id="outlier_message_reviews"></div>
+    </div>
+
+    <hr>
+
+    <!-- google charts -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+
+</body>

@@ -1,0 +1,288 @@
+/* colors */
+:root {
+    --theme-primary: #f3c6f0;
+    --theme-secondary: #8fc3a4;
+    --theme-accent: #E2F0CB;
+    --theme-text: #f3c6f0;
+    --theme-bg: #60605d;
+    --theme-white: #ffffff;
+    --theme-dark-pink: #f3c6f0;
+    --theme-dark-mint: #6a9d8a;
+}
+
+body {
+    font-family: Monaco;
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    margin: 20px;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--theme-primary);
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 30px;
+    width: fit-content;
+    display: block;
+    padding-bottom: 10px;
+    text-decoration-line: underline;
+    font-family: Monaco;
+    font-weight: 900;
+
+}
+
+hr {
+    display: none;
+}
+
+/* controls & login */
+form,
+div {
+    margin-bottom: 15px;
+}
+
+.controls-row {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+/* header layout */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#loginForm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+#loginForm input {
+    width: 120px;
+    padding: 4px;
+    font-size: 13px;
+}
+
+label {
+    font-weight: 20;
+    margin-left: 10px;
+    color: var(--theme-secondary);
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="range"] {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* buttons */
+button {
+    background-color: var(--theme-secondary);
+    color: #070707;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: var(--theme-dark-mint);
+}
+
+button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button[type="submit"] {
+    background-color: var(--theme-primary);
+    color: #000;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--theme-dark-pink);
+}
+
+/* messages */
+#message_area {
+    text-align: left;
+    color: #e4c1c1;
+    min-height: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#outlier_message,
+#outlier_message_borough,
+#outlier_message_neighborhood,
+#outlier_message_reviews {
+    text-align: center;
+    margin-top: 10px;
+    color: #ef0c0c;
+    font-style: italic;
+}
+
+/* charts & tables */
+canvas {
+    background-color: #f4f0f0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* google tables */
+.google-visualization-table-table {
+    font-family: inherit !important;
+    color: #000 !important;
+}
+
+.google-visualization-table-td {
+    color: #000 !important;
+}
+
+.google-visualization-table-tr-head {
+    background-color: var(--theme-primary) !important;
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.google-visualization-table-tr-even,
+.google-visualization-table-tr-odd {
+    background-color: #fff !important;
+}
+
+.google-visualization-table-tr-sel {
+    background-color: var(--theme-accent) !important;
+    color: #333 !important;
+}
+
+/* borders for table containers */
+div[id^="table_"] {
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* tabs */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px 8px 0 0;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    border-radius: 0;
+    color: #000;
+    box-shadow: none;
+}
+
+.tab button:hover {
+    background-color: #eee;
+}
+
+.tab button.active {
+    background-color: var(--theme-secondary);
+    color: #000;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    animation: fadeEffect 1s;
+}
+
+.tabcontent h3 {
+    color: #000;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* help button */
+#helpBtn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: var(--theme-white);
+    color: var(--theme-text);
+    border: 1px solid var(--theme-secondary);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#helpBtn:hover {
+    background-color: var(--theme-secondary);
+    color: white;
+}
