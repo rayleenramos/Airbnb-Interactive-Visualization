@@ -43,8 +43,8 @@ Charts and tables update dynamically without page reloads.
 🔗 https://obi.kean.edu/~ramorayl@kean.edu/CPS5745/index.html  
 
 Demo Credentials:  
-Login: tiger  
-Password: 5920  
+- Login: tiger  
+- Password: 5920  
 
 ## Documentation
 Detailed technical report and project presentation are available in the `/docs` folder.
