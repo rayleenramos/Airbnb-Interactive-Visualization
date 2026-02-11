@@ -31,5 +31,5 @@ The system processes user requests via AJAX, retrieves aggregated data from MySQ
 Link: https://obi.kean.edu/~ramorayl@kean.edu/CPS5745/index.html
 
 Demo Login:
-Login: tiger
-Password: 5920
+- Login: tiger
+- Password: 5920
